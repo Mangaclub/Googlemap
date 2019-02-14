@@ -1,0 +1,471 @@
+/* resize */
+.resizable {
+	padding: 10px;
+    resize: both;   /* Options: horizontal, vertical, both */
+    overflow: auto; /* fix for Safari */
+}
+.element_show_off {
+	display:none;
+}
+.gm-control-group {
+	margin:3px !important;
+}
+.gm-border-top {
+	padding-top:3px!important;
+	border-top-width: 1px;
+	border-top-style: solid;
+	border-top-color: #CCC;
+}
+#map img{
+max-width: none;
+}
+#gmap-statusbar	{
+	height: 24px;	
+}
+
+#gmap-center {
+	margin-bottom:6px;
+	margin-right:5px;
+}
+#gmap-zoom {
+	margin-bottom:6px;
+	margin-right:5px;
+	margin-left:5px;
+}
+#gmap-center-lat, #gmap-center-lng{
+	width:180px;	
+}
+#gm_overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: #FFF;
+	filter: alpha(opacity=50);
+	-moz-opacity: 0.5;
+	-khtml-opacity: 0.5;
+	opacity: 0.5;
+	z-index: 10000;
+	text-align: center;
+	vertical-align: central;
+}
+#satellite_view_45{
+	display:none;
+}
+#line_chart_option{
+	display:none;
+}
+#map{
+	
+}
+#savebar{
+	position:relative;
+	top: 0px;
+	height:20px;
+	
+}
+.ui-progressbar {
+position: absolute;
+    top: 10px;
+    width: 97%;
+    height: 20px;
+    z-index: 1;	
+}
+.progress-label {
+	position: absolute;
+	left: 50%;
+	top: 4px;
+	font-weight: bold;
+	text-shadow: 1px 1px 0px #fff;
+}
+.progress-label2 {
+	position: absolute;
+	left: 50%;
+	top: 1px;
+	font-weight: bold;
+	font-size: small;
+	text-shadow: 1px 1px 0px #fff;
+}
+
+
+.google-visualization-table-table, .google-visualization-table content{
+	width: 100%;	
+}
+#jform_custom_map_language{
+	visibility:hidden;	
+}
+/* tabpane */
+
+.icon-gm_config:before
+{ 
+	content : "\36"; 
+}
+.icon-gm_map_edit:before
+{ 
+	content : "\2b"; 
+}
+
+.icon-gm_map_new:before
+{ 
+	content : "\2b"; 
+}
+.icon-gm_map_list:before
+{ 
+	content : "\31"; 
+}
+.icon-gm_main:before
+{ 
+	content : "\73"; 
+}
+#color_button{
+	margin-top:-8px;
+	
+}
+/* Table */
+.gm_row0{
+	border-top: 1px dotted #E2E2E2;
+	border-right: 1px none #E2E2E2;
+	border-bottom: 1px dotted #E2E2E2;
+	border-left: 1px none #E2E2E2;
+	line-height: 20px;
+}
+.gm_row0 td {
+	padding: 5px;
+
+}
+.gm_row1{
+	
+}
+.gm_row1 td {
+	padding: 5px;
+
+}
+.gm_input{
+	width: auto;   
+}
+/* color picker */
+.picker_layer {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	text-decoration: none;
+	background-color: #d4d0c8;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #666666;
+	overflow: visible;
+	height: auto;
+	width: auto;
+}
+
+.cell_color {
+	cursor:pointer;
+	width:9px;
+	height:9px;
+}
+.color_table {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	text-decoration: none;
+}
+.choosed_color_cell{
+	border-style:solid; border-color:#000000; border-width:1px;
+}
+.default_color_btn{
+	width:17px; height:17px; background-image:url(../images/defaultcolor.jpg);
+	background-repeat:no-repeat; background-position:center;
+}
+/* end color picker */
+.assume 
+{
+	margin-right: 7px;
+	vertical-align: middle;	
+}
+
+#marker_address, #marker_move_lat_lng{
+	width: 300px;
+		
+}
+#marker_move_lat_lng{
+	display:none;
+}
+.marker_address{
+	margin-top:8px;
+}
+
+
+.markerassume{
+	padding-left: 10px;
+	margin-top: 27px;	
+}
+.class_text_area{
+	width: 180px;	
+}
+
+.button
+{
+	padding-right: 5px;
+	padding-left: 5px;
+	cursor: pointer;
+}
+table.toolbar span 
+{
+	float: none;
+	width: 32px;
+	height: 32px;
+	margin-top: 0pt;
+	margin-right: auto;
+	margin-bottom: 0pt;
+	margin-left: auto;
+	display: block;
+}
+#map_button, #map_kartenwerte, #marker_suche, #marker_beschreibung, #markeredit, #markerdel, #markersave,{
+	cursor: pointer;
+	margin-left: 5px;
+}
+#text {
+	cursor: pointer;
+	white-space: nowrap;
+}
+.t_cell {
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-right-style: dashed;
+	border-bottom-style: solid;
+	border-right-color: #CCC;
+	border-bottom-color: #CCC;
+	padding: 5px;
+}
+
+.on {
+	color: #000;
+	background-color: #CCC;
+}
+.cell-1 {
+	vertical-align :top
+	
+}
+.marker-icon-label {
+	float: left;
+	padding-left: 10px;
+	text-align: right;
+}
+
+.marker-icon-liste {
+	float: left;
+	padding-left: 10px;
+}
+
+.marker-icon {
+	padding-top: 15px;
+	text-align: center;
+}
+
+#editor {
+	display: none;
+} 
+
+
+.button2-left .gmap 	{
+	background-image: url(../images/gmap_editor.png);
+	background-repeat: no-repeat;
+	background-position: 100% center;
+}
+
+.line_senkrecht  {
+	border-left-width: 1px;
+	border-left-style: solid;
+	border-left-color: #999;
+}
+.line_waagerecht_unten  {
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #999;
+}
+.line_waagerecht_oben  {
+	border-top-width: 1px;
+	border-top-style: solid;
+	border-top-color: #999;
+}
+
+#places_types_list {
+	width:229px;
+	height:149px;
+	z-index:1;
+	overflow: scroll;
+	overflow-x:hidden;
+}
+/*///////////////treeview///////////*/
+#markertabelle {
+	float:left;
+	width:395px;
+}
+#markerlistwrapper {
+	
+}
+
+.css-treeview ul,
+.css-treeview li
+{
+padding: 0;
+margin: 0;
+list-style: none;
+}
+
+.css-treeview input
+{
+position: absolute;
+opacity: 0;
+}
+
+#markerList {
+	border: 1px solid #CCC;	
+	padding:5px;
+}
+
+.css-treeview
+{
+	font: normal 11px "Segoe UI", Arial, Sans-serif;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	user-select: none;
+	height: 300px;
+	overflow: scroll;
+	overflow-x:hidden;
+	width:	250px;
+	padding: 10px;
+    resize: both;
+	   /* Options: horizontal, vertical, both */
+}
+
+.css-treeview a
+{
+color: #00f;
+text-decoration: none;
+}
+
+.css-treeview a:hover
+{
+text-decoration: underline;
+}
+
+.css-treeview input + label + ul
+{
+margin: 0 0 0 22px;
+}
+
+.css-treeview input ~ ul
+{
+display: none;
+}
+
+.css-treeview label,
+.css-treeview label::before
+{
+cursor: pointer;
+}
+
+.css-treeview input:disabled + label
+{
+cursor: default;
+opacity: .6;
+}
+
+.css-treeview input:checked:not(:disabled) ~ ul
+{
+display: block;
+}
+
+.css-treeview label,
+.css-treeview label::before
+{
+background: url("icons.png") no-repeat;
+}
+
+.css-treeview label,
+.css-treeview a,
+.css-treeview label::before
+{
+display: inline-block;
+height: 16px;
+line-height: 16px;,
+vertical-align: middle;
+}
+
+.css-treeview label
+{
+background-position: 18px 0;
+}
+
+.css-treeview label::before
+{
+content: "";
+width: 16px;
+margin: 0 22px 0 0;
+vertical-align: middle;
+background-position: 0 -32px;
+}
+
+.css-treeview input:checked + label::before
+{
+background-position: 0 -16px;
+}
+
+/* webkit adjacent element selector bugfix */
+@media screen and (-webkit-min-device-pixel-ratio:0)
+{
+.css-treeview 
+{
+	-webkit-animation: webkit-adjacent-element-selector-bugfix infinite 1s;
+}
+
+@-webkit-keyframes webkit-adjacent-element-selector-bugfix 
+{
+	from 
+	{ 
+		padding: 0;
+	} 
+	to 
+	{ 
+		padding: 0;
+	}
+}
+}
+.markericon {
+	cursor: pointer;
+
+}
+.iconselect {
+	border: 1px solid #F00;	
+}
+.markericonstandard{
+	text-align: center;
+	font-size: 11px;
+	font-style: normal;
+	cursor: pointer; 
+  float:left;
+}
+.selectedmarker{
+	text-align: center;
+	font-size: 11px;
+	font-style: normal; 
+}
+.gmfieldset{
+	text-wrap:none;
+}
+.gmfieldset input, .gmfieldset img, .gmfieldset label, .gmfieldset select{
+	margin: 0px;
+	float: none;
+}
+
+.subtabelle{
+	height: 400px;
+	overflow: scroll;
+	overflow-x:hidden;
+}
+
+/*///////////////Lang Set///////////*/
+#gm_fs_lang{
+	float:left;
+	text-wrap:none;	
+}

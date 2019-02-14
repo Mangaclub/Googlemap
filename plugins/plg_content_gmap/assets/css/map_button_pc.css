@@ -1,0 +1,262 @@
+
+
+body.contentpane{
+	margin:0 !important ;
+	overflow: hidden !important ;
+	padding: 0 !important ;
+}
+body.modal{
+	margin:0 !important ;
+	overflow: hidden !important ;
+	padding: 0 !important ;
+}
+iframe{
+	overflow: hidden !important ;
+	margin:0 !important ;
+	padding:0 !important ;
+	display:block !important ;
+	
+}
+
+.map_full_screen_button{
+	background: rgba(0, 0, 0, 0) url("../images/fullscreen.png") no-repeat scroll right center;
+    cursor: pointer;
+    float: right;
+    height: 25px;
+    margin-right: 5px;
+    margin-top: 5px;
+    opacity: 0.6;
+    position: absolute;
+    right: 0;
+    top: 30px;
+    width: 25px;
+}
+.mfsb_default{
+	z-index:3;	
+}
+.mfsb_street_view{
+	z-index:30;	
+}
+.map_setup_button{
+	background: rgba(0, 0, 0, 0) url("../images/setup.png") no-repeat scroll right center;
+    cursor: pointer;
+    float: right;
+    height: 25px;
+    margin-right: 5px;
+    margin-top: 5px;
+    opacity: 0.6;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 25px;
+}
+.msb_default{
+	background-position: center bottom;
+	z-index:20;
+}
+.msb_street_view{
+	background-position: center bottom;
+	z-index:1;
+}
+.msb_satellite{
+	background-position: center top;
+	z-index:20;
+}
+.map_setup_wrapper{
+	float: right;
+	height: 100%;
+	position: absolute;
+	right: 0;
+	top: 0;
+	background-color: #666666;
+	opacity: 0.4;
+	z-index:18;
+}
+
+.msw_hidden{
+	width: 0px;
+}
+.msw_show{
+	width: 100%;
+}
+
+.map_setup{
+	border-left: 1px solid #CCC;
+	z-index: 19;
+	right: 0;
+	top: 0;
+	position: absolute;
+	background: #fff;
+	float:right;
+	height:100%;
+	padding-right: 20px;
+	overflow-y: auto;
+	white-space: nowrap;
+}
+.ms_hidden{
+	transition-duration: 0.3s;
+	margin-right:-240px;	
+}
+.ms_show{
+	transition-duration: 0.3s;
+	margin-right:0px;
+}
+
+.mylogo{
+	font-size: 9px;
+	position: absolute;
+	bottom: 0px;
+	text-align: center;
+	padding-left:20%;	
+}
+.mylogo, #logo_button{
+	display:block!important;
+}
+.map_elevation_close{
+	background: url(../images/cross.png) no-repeat right center;
+	width: 100%;
+	height: 16px;
+	position: absolute;
+	z-index: 3;
+	cursor: pointer;
+	margin-top: 5px;
+	margin-left: -5px;
+}
+.map_elevation_wrapper{
+	border-left: 1px solid #CCC;
+	z-index: 19;
+	bottom: 0;
+	position: absolute;
+	background: #fff;
+	height:100px;
+	padding-right: 0px;
+	width: 100%;
+}
+.map_elevation{
+	z-index:1;
+	width: 100%;
+}
+.mec_hidden{
+	transition-duration: 0.3s;
+	margin-bottom:-150px;	
+}
+.mec_show{
+	transition-duration: 0.3s;
+	margin-bottom:0px;	
+}
+
+.button_wrapper_close {
+	height: 0px;
+	
+}
+.gm-style img {
+    max-width: none!important;
+}
+
+.map_option_list, .map_option_list_1 {
+	list-style: url(none) none;
+	background-image: url(none);
+	cursor: pointer;
+	margin-left:0px;
+	margin-top:3px;
+	padding-top:3px;
+	line-height: 100%;
+	padding-left:1px;
+	margin-bottom: 3px;
+}
+.option_text{
+	margin-left: 3px;
+	color: #333;
+}
+.option_list_teiler{
+	margin-top:0px;
+	margin-bottom:0px;
+}
+
+.button_option {
+	line-height:24px;
+	padding-left: 30px;
+	margin-bottom: 5px;
+}
+.road {
+	background-image: url(../images/road.png);
+	background-repeat: no-repeat;
+	cursor: pointer;
+	margin-left: 3px;
+	vertical-align: middle;
+}
+.terrain {
+	background-image: url(../images/berg.png);
+	background-repeat: no-repeat;
+	cursor: pointer;
+	margin-left: 3px;
+	vertical-align: middle;
+}
+.satellite {
+	background-image: url(../images/satellite.png);
+	background-repeat: no-repeat;
+	cursor: pointer;
+	margin-left: 3px;
+	vertical-align: middle;
+}
+.hybrid {
+	background-image: url(../images/satellite_text.png);
+	background-repeat: no-repeat;
+	cursor: pointer;
+	margin-left: 3px;
+	vertical-align: middle;
+}
+
+.bike {
+	background-image: url(../images/bike.png);
+	background-repeat: no-repeat;
+	cursor: pointer;
+	margin-left: 3px;
+	vertical-align: middle;
+}
+.traffic {
+	background-image: url(../images/traffic.png);
+	background-repeat: no-repeat;
+	cursor: pointer;
+	margin-left: 3px;
+	vertical-align: middle;
+}
+.transit {
+	background-image: url(../images/transit.png);
+	background-repeat: no-repeat;
+	cursor: pointer;
+	margin-left: 3px;
+	vertical-align: middle;
+}
+.street_view {
+	background-image: url(../images/street_view.png);
+	background-repeat: no-repeat;
+	cursor: pointer;
+	margin-left: 3px;
+	vertical-align: middle;
+}
+.osm {
+	background-image: url(../images/osm.png);
+	background-repeat: no-repeat;
+	cursor: pointer;
+	margin-left: 3px;
+	vertical-align: middle;
+}
+#map_osm{
+	
+}
+
+.option_on{
+	background-position: left top;
+	background-color: #E1E1E1;
+}
+.option_off{
+background-position: left bottom;
+opacity: 0.5;
+}
+.display_on{
+	display:block;
+}
+.display_off{
+	display:none;
+}

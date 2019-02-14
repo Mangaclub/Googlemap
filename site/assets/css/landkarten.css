@@ -1,0 +1,19 @@
+@charset "utf-8";
+/* CSS Document */
+#landkarten_spalten {
+	width: 420px;
+	margin-top: 5px;
+	float: left;
+}
+
+.landkarten {
+	border-color: #CCCCCC;
+	border-width: 2px;
+	padding: 5px;
+	width: 380px;
+}
+
+.kartenpunkt_titel {
+	font-weight: bold;
+	margin-top: -2px;
+}

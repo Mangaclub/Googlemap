@@ -1,0 +1,15 @@
+﻿#tab-1{
+	display:block;
+	min-width:650px;
+}
+
+#tab-2, #tab-3, #tab-4, #tab-5, #tab-6,	#tab-7, #tab-8 {
+	display:none;
+	min-width:650px;
+}
+
+#page-section {
+	border-bottom: 1px dotted #999;
+	width: 100%; 
+	font-weight: bold;
+}

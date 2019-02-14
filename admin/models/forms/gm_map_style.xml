@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form
+	addrulepath="/administrator/components/com_gmap/models/rules"
+	addfieldpath="/administrator/components/com_gmap/models/fields"
+>
+	<fieldset name="details">
+		<field
+			class="inputbox validate-textbox"
+			default=""
+			description="COM_GMAP_VIEW_GM_KML_TOOLTIP_TITLE"
+			label="COM_GMAP_VIEW_GM_KML_LABEL_TITLE"
+			name="kml_title"
+			required="true"
+			size="40"
+			type="text"
+			validate="textbox"
+		/>
+		<field
+			default=""
+			description="COM_GMAP_VIEW_GM_KML_TOOLTIP_PFAD"
+			label="COM_GMAP_VIEW_GM_KML_LABEL_PFAD"
+			name="kml_pfad"
+			required="true"
+			size="200"
+			type="text"
+			validate="textbox"
+		/>
+		<field
+			name="kml_beschreibung"
+			type="editor"
+			editor="JCE|TinyMCE"
+			default=""
+			cols="300"
+			rows="20"
+			height="auto"
+			width="400px"
+			button="false"
+			class="gm_input"
+			label="COM_GMAP_VIEW_GM_KML_LABEL_DESC"
+			description=""
+			/>
+	</fieldset>
+</form>

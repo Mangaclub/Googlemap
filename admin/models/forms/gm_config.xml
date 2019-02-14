@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form
+	addrulepath="/administrator/components/com_gmap/models/rules"
+	addfieldpath="/administrator/components/com_gmap/models/fields"
+>
+	<fieldset name="details">
+		<field
+			class="inputbox"
+			default=""
+			label="API-KEY"
+			name="conf_api_key"
+			size="200"
+			type="text"
+			validate="textbox"
+		/>
+		<field
+			class="inputbox validate-textbox"
+			default=""
+			description="COM_GMAP_VIEW_CONFIG_TOOLTIP_WIDTH"
+			label="COM_GMAP_VIEW_CONFIG_LABEL_WIDTH"
+			name="conf_map_breite"
+			required="true"
+			size="40"
+			type="text"
+			validate="textbox"
+		/>
+		<field
+			class="inputbox validate-textbox"
+			default=""
+			description="COM_GMAP_VIEW_CONFIG_TOOLTIP_HIGHT"
+			label="COM_GMAP_VIEW_CONFIG_LABEL_HIGHT"
+			name="conf_map_hoehe"
+			required="true"
+			size="40"
+			type="text"
+			validate="textbox"
+		/>
+		<field
+			class="inputbox validate-textbox"
+			default=""
+			description="COM_GMAP_VIEW_CONFIG_TOOLTIP_CENTER"
+			label="COM_GMAP_VIEW_CONFIG_LABEL_CENTER"
+			name="conf_center_lat"
+			required="true"
+			size="40"
+			type="text"
+			validate="textbox"
+		/>
+		<field
+			class="inputbox validate-textbox"
+			default=""
+			description=""
+			label=""
+			name="conf_center_lng"
+			required="true"
+			size="40"
+			type="text"
+			validate="textbox"
+		/>
+		<field
+			class="inputbox validate-textbox"
+			default=""
+			description="COM_GMAP_VIEW_CONFIG_TOOLTIP_ZOOM"
+			label="COM_GMAP_VIEW_CONFIG_LABEL_ZOOM"
+			name="conf_start_zoom"
+			required="true"
+			size="40"
+			type="text"
+			validate="textbox"
+		/>
+		<field 
+				name="conf_map_sensor"
+				class="btn-group btn-group-yesno"
+				type="radio"
+				default="false"
+				label="COM_GMAP_VIEW_CONFIG_LABEL_SENSOR"
+				description="COM_GMAP_VIEW_CONFIG_TOOLTIP_SENSOR">
+				<option value="true">JYES</option>
+				<option value="false">JNO</option>
+			</field>
+	</fieldset>
+</form>

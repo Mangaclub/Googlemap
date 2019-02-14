@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="3.1.0" client="site" method="upgrade">
+    <name>Google Map Landkarten</name>
+    <author>Andy Thielke</author>
+    <version>1.0.1</version>
+    <description>MOD_DESC</description>
+    <files>
+        <filename>mod_gmap.xml</filename>
+        <filename module="mod_gmap">mod_gmap.php</filename>
+        <filename>index.html</filename>
+        <filename>helper.php</filename>
+		<folder>tmpl</folder>
+    </files>
+	<languages>
+		<language tag="en-GB">en-GB.mod_gmap.ini</language>
+		<language tag="en-GB">en-GB.mod_gmap.sys.ini</language>
+		<language tag="de-DE">de-DE.mod_gmap.ini</language>
+		<language tag="de-DE">de-DE.mod_gmap.sys.ini</language>
+	</languages>
+
+    <config>
+   
+		<fields name="params">
+			<fieldset name="basic">
+				<field
+					   name="map_titel"
+					   type="sql"
+					   default="1"
+					   label="MOD_SELECT_MAP"
+					   query="SELECT id, map_titel FROM #__gm_map" key_field="id"/>
+				<field
+					name="map_width"
+					type="text"
+					default="100%"
+					size="10"
+					description="MOD_DESC_MAP_WIDTH"
+					label="MOD_MAP_WIDTH"/>
+				<field
+					name="map_height"
+					type="text"
+					default="200px"
+					size="10"
+					description="MOD_DESC_MAP_HEIGHT"
+					label="MOD_MAP_HEIGHT"/>
+				<field 
+					name="map_iframe"
+					class="btn-group btn-group-yesno"
+					type="radio"
+					default="false"
+					label="MOD_LABEL_MAP_IFRAME"
+					description="MOD_DESC_MAP_IFRAME">
+					<option value="true">JYES</option>
+					<option value="false">JNO</option>
+				</field>
+			</fieldset>
+			<fieldset name="advanced">
+				<field
+					name="layout"
+					type="modulelayout"
+					label="JFIELD_ALT_LAYOUT_LABEL"
+					description="JFIELD_ALT_MODULE_LAYOUT_DESC" />
+				<field
+					name="moduleclass_sfx"
+					type="textarea" rows="3"
+					label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
+					description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC" />
+				<field
+					name="cache"
+					type="list"
+					default="1"
+					label="COM_MODULES_FIELD_CACHING_LABEL"
+					description="COM_MODULES_FIELD_CACHING_DESC">
+					<option
+						value="1">JGLOBAL_USE_GLOBAL</option>
+					<option
+						value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option>
+				</field>
+				<field
+					name="cache_time"
+					type="text"
+					default="900"
+					label="COM_MODULES_FIELD_CACHE_TIME_LABEL"
+					description="COM_MODULES_FIELD_CACHE_TIME_DESC" />
+				<field
+					name="cachemode"
+					type="hidden"
+					default="static">
+					<option
+						value="static"></option>
+				</field>
+			</fieldset>
+		</fields>
+		 </config>
+</extension>

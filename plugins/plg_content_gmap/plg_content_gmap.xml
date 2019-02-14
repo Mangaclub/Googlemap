@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="plugin" version="3.0" group="content" method="upgrade">
+  <tag>plg_content_gmap</tag>
+  <name>Content Google Map Landkarten</name>
+  <creationDate>Juli 2016</creationDate>
+  <author>Andy Thielke</author>
+  <authorEmail>kontakt@joomla-24.de</authorEmail>
+  <authorUrl>http://www.joomla-24.de</authorUrl>
+  <copyright>Copyright (C) 2016 Andy Thielke</copyright>
+  <license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+  <version>4.2.2</version>
+  <description><![CDATA[<H1>Google Map Landkarten Content-Plugin</H1><br/>Erforderliches Plugin für die Google Map Landkarten Komponente.]]></description>
+  <files>
+        <filename plugin="plg_content_gmap">plg_content_gmap.php</filename>
+		<filename>gm_map.js</filename>
+		<filename>ajax.js</filename>
+		<folder>assets</folder>
+
+	</files>
+	<languages folder="site">
+		<language tag="de-DE">de-DE.plg_content_plg_content_gmap.ini</language>
+		<language tag="de-DE">en-GB.plg_content_plg_content_gmap.ini</language>
+	</languages>
+
+</extension>

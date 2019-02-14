@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="1.7" type="plugin" group="search"  method="upgrade">
+  <name>Search Plugin for Google Map Landkarten</name>
+  <creationDate>März-2016</creationDate>
+  <author>Andy Thielke</author>
+  <authorEmail>kontakt@joomla-24.de</authorEmail>
+  <authorUrl>http://www.joomla-24.de</authorUrl>
+  <copyright>Copyright (C) 2016 Andy Thielke</copyright>
+  <license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+  <version>4.2</version>
+  <description><![CDATA[<H1>Google Map Landkarten Search-Plugin</H1><br/>Optionales Plugin für die Google Map Landkarten Komponente.]]></description>
+  <files>
+    <filename plugin="plg_search_gmap">plg_search_gmap.php</filename>
+  </files>
+	<config>
+	<fields name="params">
+		<fieldset name="basic">
+			<field name="gm_label" type="text" 
+				size="30" 
+				default="Google Map Landkarten" 
+				label="Beschriftung Kategorie Suche" 
+				description="Kategorie Suche"/>
+		</fieldset>
+		</fields>
+	</config>
+</extension>

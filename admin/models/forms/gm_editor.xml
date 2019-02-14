@@ -1,0 +1,1158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form
+	addrulepath="/administrator/components/com_gmap/models/rules"
+	addfieldpath="/administrator/components/com_gmap/models/fields"
+>
+
+	<field 
+		name="showelement"
+		onchange= "main.ShowElement();" 
+		type="list"
+		class="showelement"
+		description="COM_GMAP_VIEW_GM_MAP_EDITOR_LIST_TOOLTIP_SHOWELEMENT"
+		multiple ="true"
+		default="infowindow"
+		label="COM_GMAP_VIEW_GM_MAP_EDITOR_LIST_LABEL_SHOWELEMENT">
+   			<option value="marker">COM_GMAP_VIEW_GM_MAP_EDITOR_CHECKBOX_MARKER</option>
+   			<option value="rectangle">COM_GMAP_VIEW_GM_MAP_EDITOR_CHECKBOX_RECTANGLE</option>
+    		<option value="circle">COM_GMAP_VIEW_GM_MAP_EDITOR_CHECKBOX_CIRCLE</option>
+    		<option value="line">COM_GMAP_VIEW_GM_MAP_EDITOR_CHECKBOX_LINE</option>
+			<option value="polygon">COM_GMAP_VIEW_GM_MAP_EDITOR_CHECKBOX_POLYGON</option>
+			<option value="textbox">COM_GMAP_VIEW_GM_MAP_EDITOR_CHECKBOX_HTMLBOX</option>
+			<option value="infowindow">COM_GMAP_VIEW_GM_MAP_EDITOR_MARKER_LABEL_MSG_WINDOWS</option>
+			<option value="markercluster">COM_GMAP_VIEW_GM_MAP_EDITOR_ELEMENT_CLUSTER_MARKER</option>
+	</field>
+
+<!-- Form Map Allgemein -->
+	<fieldset name="map_allgemein">
+		<field
+			name="map_height"
+			type="hidden"
+			/>
+		<field
+			name="map_width"
+			type="hidden"
+			/>
+		
+		<field
+			name="map_center_lat"
+			class="gm_input"
+			type="text"
+			default=""
+			required="true"
+			maxlength="30"
+			onchange= "setmapoption.map_center_lat(this.value);"
+			size="20"
+			description="COM_GMAP_VIEW_GM_MAP_EDITOR_MAP_TOOLTIP_CENTER"
+			label="COM_GMAP_VIEW_GM_MAP_EDITOR_MAP_LABEL_CENTER"/>
+		<field
+			name="map_center_lng"
+			class="gm_input"
+			type="text"
+			default=""
+			required="true"
+			maxlength="30"
+			onchange= "setmapoption.map_center_lng(this.value);"
+			size="20"
+			description=""
+			label=""/>
+		<field
+			name="map_zoom"
+			type="text"
+			default=""
+			maxlength="3"
+			size="3"
+			onchange= "setmapoption.map_zoom(this.value);"
+			class="gm_input"
+			description="COM_GMAP_VIEW_GM_MAP_EDITOR_MAP_TOOLTIP_ZOOM"
+			label="COM_GMAP_VIEW_GM_MAP_EDITOR_MAP_LABEL_ZOOM"/>
+		<field
+			name="map_minzoom"
+			type="text"
+			default=""
+			maxlength="3"
+			size="3"
+			onchange= "setmapoption.map_minzoom(this.value);"
+			class="gm_input"
+			description=""
+			label=""/>
+		<field
+			name="map_maxzoom"
+			type="text"
+			default=""
+			maxlength="3"
+			size="3"
+			onchange= "setmapoption.map_maxzoom(this.value);"
+			class="gm_input"
+			description=""
+			label=""/>
+		<field
+				name="map_maptype"
+				type="list"
+				onchange= "setmapview.maptyp(this.value);"
+				label="COM_GMAP_VIEW_GM_MAP_EDITOR_MAP_LABEL_TYPE"
+				description="COM_GMAP_VIEW_GM_MAP_EDITOR_MAP_TOOLTIP_TYPE"
+				default="roadmap">
+				<option value="roadmap">COM_GMAP_VIEW_GM_MAP_EDITOR_MAP_OPTION_ROADMAP</option>
+				<option value="terrain">COM_GMAP_VIEW_GM_MAP_EDITOR_MAP_OPTION_TERRAIN</option>
+				<option value="satellite">COM_GMAP_VIEW_GM_MAP_EDITOR_MAP_OPTION_SATELLITE</option>
+				<option value="hybrid">COM_GMAP_VIEW_GM_MAP_EDITOR_MAP_OPTION_HYBRID</option>
+				<option value="osm">OpenStreetMap</option>
+		</field>
+		<field 
+				name="map_satellite_view_45"
+				class="btn-group btn-group-yesno" 
+				type="radio"
+				default="false"
+				label="COM_GMAP_VIEW_GM_MAP_EDITOR_MAP_LABEL_SATELLITE_VIEW_45"
+				description="COM_GMAP_VIEW_GM_MAP_EDITOR_MAP_TOOLTIP_SATELLITE_VIEW_45">
+				<option value="true" onclick= "setmapoption.map_satellite_45(45);">JYES</option>
+				<option value="false" onclick= "setmapoption.map_satellite_45(0);">JNO</option>
+			</field>
+		<field
+				name="map_satellite_view_45_heading"
+				type="list"
+				onchange= "setmapoption.satellite_view_45_heading(this.value);"
+				label="COM_GMAP_VIEW_GM_MAP_EDITOR_MAP_LABEL_SATELLITE_VIEW_45_HEADING"
+				description="COM_GMAP_VIEW_GM_MAP_EDITOR_MAP_TOOLTIP_SATELLITE_VIEW_45_HEADING"
+				default="0">
+				<option value="0">COM_GMAP_VIEW_GM_MAP_EDITOR_MAP_OPTION_SATELLITE_VIEW_45_HEADING_NORTH</option>
+				<option value="90">COM_GMAP_VIEW_GM_MAP_EDITOR_MAP_OPTION_SATELLITE_VIEW_45_HEADING_EAST</option>
+				<option value="180">COM_GMAP_VIEW_GM_MAP_EDITOR_MAP_OPTION_SATELLITE_VIEW_45_HEADING_SOUTH</option>
+				<option value="270">COM_GMAP_VIEW_GM_MAP_EDITOR_MAP_OPTION_SATELLITE_VIEW_45_HEADING_WEST</option>
+		</field>
+		<field 
+				name="map_draggable"
+				class="btn-group btn-group-yesno"
+				type="radio"
+				default="true"
+				label="COM_GMAP_VIEW_GM_MAP_EDITOR_MAP_LABEL_DRAGGABLE"
+				description="COM_GMAP_VIEW_GM_MAP_EDITOR_MAP_TOOLTIP_DRAGGABLE">
+				<option value="true" onclick= "setmapoption.map_draggable(true);">JYES</option>
+				<option value="false" onclick= "setmapoption.map_draggable(false);">JNO</option>
+			</field>
+		<field 
+				name="map_DoubleClickZoom"
+				class="btn-group btn-group-yesno" 
+				type="radio"
+				default="false"
+				label="COM_GMAP_VIEW_GM_MAP_EDITOR_MAP_LABEL_DOUBLECLICKZOOM"
+				description="COM_GMAP_VIEW_GM_MAP_EDITOR_MAP_TOOLTIP_DOUBLECLICKZOOM">
+				<option value="true" onclick= "setmapoption.map_DoubleClickZoom(true);">JYES</option>
+				<option value="false" onclick= "setmapoption.map_DoubleClickZoom(false);">JNO</option>
+			</field>
+		<field 
+				name="map_scrollwheel"
+				class="btn-group btn-group-yesno" 
+				type="radio"
+				default="true"
+				label="COM_GMAP_VIEW_GM_MAP_EDITOR_MAP_LABEL_SCROLLWHEEL"
+				description="COM_GMAP_VIEW_GM_MAP_EDITOR_MAP_TOOLTIP_SCROLLWHEEL">
+				<option value="true" onclick= "setmapoption.map_scrollwheel(true);">JYES</option>
+				<option value="false" onclick= "setmapoption.map_scrollwheel(false);">JNO</option>
+			</field>
+		<field 
+				name="map_panControl"
+				class="btn-group btn-group-yesno" 
+				type="radio"
+				default="true"
+				label="COM_GMAP_VIEW_GM_MAP_EDITOR_MAP_LABEL_PANCONTROL"
+				description="COM_GMAP_VIEW_GM_MAP_EDITOR_MAP_TOOLTIP_PANCONTROL">
+				<option value="true" onclick= "setmapoption.map_panControl(true);">JYES</option>
+				<option value="false" onclick= "setmapoption.map_panControl(false);">JNO</option>
+			</field>
+		<field 
+				name="map_zoomControl"
+				class="btn-group btn-group-yesno" 
+				type="radio"
+				default="true"
+				label="COM_GMAP_VIEW_GM_MAP_EDITOR_MAP_LABEL_ZOOMCONTROL"
+				description="COM_GMAP_VIEW_GM_MAP_EDITOR_MAP_TOOLTIP_ZOOMCONTROL">
+				<option value="true" onclick= "setmapoption.map_zoomControl(true);">JYES</option>
+				<option value="false" onclick= "setmapoption.map_zoomControl(false);">JNO</option>
+			</field>
+		<field
+				name="map_ZoomControlStyle"
+				type="list"
+				onchange= "setmapoption.map_ZoomControlStyle(this.value);"
+				label="COM_GMAP_VIEW_GM_MAP_EDITOR_MAP_LABEL_ZOOMCONTROLSTYLE"
+				description="COM_GMAP_VIEW_GM_MAP_EDITOR_MAP_TOOLTIP_ZOOMCONTROLSTYLE"
+				default="roadmap">
+				<option value="google.maps.ZoomControlStyle.DEFAULT">COM_GMAP_VIEW_GM_MAP_EDITOR_MAP_OPTION_DEFAULT</option>
+				<option value="google.maps.ZoomControlStyle.SMALL">COM_GMAP_VIEW_GM_MAP_EDITOR_MAP_OPTION_ZOOM_CONTROL_SMALL</option>
+				<option value="google.maps.ZoomControlStyle.LARGE">COM_GMAP_VIEW_GM_MAP_EDITOR_MAP_OPTION_ZOOM_CONTROL_LARGE</option>
+		</field>
+		<field 
+				name="map_scaleControl"
+				class="btn-group btn-group-yesno" 
+				type="radio"
+				default="false"
+				label="COM_GMAP_VIEW_GM_MAP_EDITOR_MAP_LABEL_SCALECONTROL"
+				description="COM_GMAP_VIEW_GM_MAP_EDITOR_MAP_TOOLTIP_SCALECONTROL">
+				<option value="true" onclick= "setmapoption.map_scaleControl(true);">JYES</option>
+				<option value="false" onclick= "setmapoption.map_scaleControl(false);">JNO</option>
+			</field>
+	</fieldset>
+<!-- Map more option -->	
+	<fieldset name="map_more_option">
+		<field 
+				name="map_bike_layer"
+				class="btn-group btn-group-yesno" 
+				type="radio"
+				default="null"
+				label="COM_GMAP_VIEW_GM_MAP_EDITOR_MAP_LABEL_BIKELAYER"
+				description="COM_GMAP_VIEW_GM_MAP_EDITOR_MAP_TOOLTIP_BIKELAYER">
+				<option value="map" onclick= "setmapview.map_bike_layer(this.value);">JYES</option>
+				<option value="null" onclick= "setmapview.map_bike_layer(this.value);">JNO</option>
+			</field>
+		<field 
+				name="map_traffic_layer"
+				class="btn-group btn-group-yesno" 
+				type="radio"
+				default="null"
+				label="COM_GMAP_VIEW_GM_MAP_EDITOR_MAP_LABEL_TRAFFICLAYER"
+				description="COM_GMAP_VIEW_GM_MAP_EDITOR_MAP_TOOLTIP_TRAFFICLAYER">
+				<option value="map" onclick= "setmapview.map_traffic_layer(this.value);">JYES</option>
+				<option value="null" onclick= "setmapview.map_traffic_layer(this.value);">JNO</option>
+			</field>
+		<field 
+				name="map_transit_layer"
+				class="btn-group btn-group-yesno" 
+				type="radio"
+				default="null"
+				label="COM_GMAP_VIEW_GM_MAP_EDITOR_MAP_LABEL_TRANSITLAYER"
+				description="COM_GMAP_VIEW_GM_MAP_EDITOR_MAP_TOOLTIP_TRANSITLAYER">
+				<option value="map" onclick= "setmapview.map_transit_layer(this.value);">JYES</option>
+				<option value="null" onclick= "setmapview.map_transit_layer(this.value);">JNO</option>
+			</field>
+		<field 
+				name="map_overview_map"
+				class="btn-group btn-group-yesno" 
+				type="radio"
+				default="false"
+				label="COM_GMAP_VIEW_GM_MAP_EDITOR_MAP_LABEL_OVERVIEW_MAP"
+				description="COM_GMAP_VIEW_GM_MAP_EDITOR_MAP_TOOLTIP_OVERVIEW_MAP">
+				<option value="true" onclick= "setmapoption.map_overview_map(true);">JYES</option>
+				<option value="false" onclick= "setmapoption.map_overview_map(false);">JNO</option>
+			</field>
+		<field 
+				name="map_overview_map_open"
+				class="btn-group btn-group-yesno" 
+				type="radio"
+				default="false"
+				label="COM_GMAP_VIEW_GM_MAP_EDITOR_MAP_LABEL_OVERVIEW_MAP_OPEN"
+				description="COM_GMAP_VIEW_GM_MAP_EDITOR_MAP_TOOLTIP_OVERVIEW_MAP_OPEN">
+				<option value="true" onclick= "setmapoption.map_overview_map_open(true);">JYES</option>
+				<option value="false" onclick= "setmapoption.map_overview_map_open(false);">JNO</option>
+			</field>
+		<field
+			name="map_language"
+			type="maplanguage"
+			onchange="setmapoption.language(this.value);"
+			default="auto"
+			label="COM_GMAP_VIEW_GM_MAP_EDITOR_MAP_LABEL_MAP_LANGUAGE"
+			description="COM_GMAP_VIEW_GM_MAP_EDITOR_MAP_TOOLTIP_MAP_LANGUAGE">
+			<option value="auto">Automatisch</option>
+		</field>
+		<field
+			name="custom_map_language"
+			type="text"
+			default=""
+			maxlength="10"
+			size="10"
+			class="gm_input"
+			label=""
+			description=""
+			/>
+	</fieldset>
+<!-- Map setup Button -->	
+	<fieldset name="map_setup_button">
+		<field 
+				name="map_setup_button"
+				class="btn-group btn-group-yesno" 
+				type="radio"
+				default="block"
+				label="COM_GMAP_VIEW_GM_MAP_EDITOR_SUBTAB_MAP_SETUPBUTTON"
+				description="COM_GMAP_VIEW_GM_MAP_EDITOR_TOOLTIP_MAP_SETUPBUTTON">
+				<option value="block" onclick="setmapoption.map_setup_button('block');">JYES</option>
+				<option value="none" onclick="setmapoption.map_setup_button('none');">JNO</option>
+			</field>
+		<field 
+				name="map_typ_control_button"
+				class="btn-group btn-group-yesno" 
+				type="radio"
+				default="block"
+				label="COM_GMAP_VIEW_GM_MAP_EDITOR_MAP_LABEL_MAPTYPCONTROL"
+				description="COM_GMAP_VIEW_GM_MAP_EDITOR_MAP_TOOLTIP_MAPTYPCONTROL">
+				<option value="block" onclick="setmapoption.map_typ_control_button('block');">JYES</option>
+				<option value="none" onclick="setmapoption.map_typ_control_button('none');">JNO</option>
+			</field>
+		<field 
+				name="map_layer_button"
+				class="btn-group btn-group-yesno" 
+				type="radio"
+				default="block"
+				label="COM_GMAP_VIEW_GM_MAP_EDITOR_MAP_LABEL_MORE_LAYER"
+				description="COM_GMAP_VIEW_GM_MAP_EDITOR_MAP_TOOLTIP_MORE_LAYER">
+				<option value="block" onclick="setmapoption.map_layer_button('block');">JYES</option>
+				<option value="none" onclick="setmapoption.map_layer_button('none');">JNO</option>
+			</field>
+	</fieldset>
+<!-- Map Sreet View -->	
+	<fieldset name="map_street_view">
+		<field 
+				name="streetViewControl"
+				class="btn-group btn-group-yesno" 
+				type="radio"
+				default="true"
+				label="COM_GMAP_VIEW_GM_MAP_EDITOR_MAP_LABEL_STREETVIEWCONTROL"
+				description="COM_GMAP_VIEW_GM_MAP_EDITOR_MAP_TOOLTIP_STREETVIEWCONTROL">
+				<option value="true" onclick="setmapoption.map_streetviewcontrol(true);">JYES</option>
+				<option value="false" onclick="setmapoption.map_streetviewcontrol(false);">JNO</option>
+			</field>
+		<field 
+				name="street_view_activ"
+				class="btn-group btn-group-yesno" 
+				type="radio"
+				default="false"
+				label="COM_GMAP_VIEW_GM_MAP_EDITOR_MAP_LABEL_STREETVIEWACTIV"
+				description="COM_GMAP_VIEW_GM_MAP_EDITOR_MAP_TOOLTIP_STREETVIEWACTIV">
+				<option value="true">JYES</option>
+				<option value="false">JNO</option>
+			</field>
+		<field
+			name="street_view_center_lat"
+			type="text"
+			default=""
+			maxlength="30"
+			size="20"
+			readonly="readonly"
+			class="gm_input"
+			label="COM_GMAP_VIEW_GM_MAP_EDITOR_STREETVIEW_LABEL_CENTER"
+			description="COM_GMAP_VIEW_GM_MAP_EDITOR_STREETVIEW_TOOLTIP_CENTER"
+			/>
+		<field
+			name="street_view_center_lng"
+			type="text"
+			default=""
+			maxlength="30"
+			size="20"
+			readonly="readonly"
+			class="gm_input"
+			label=""
+			description=""
+			/>
+		<field
+			name="street_view_pitch"
+			type="text"
+			default=""
+			maxlength="5"
+			readonly="readonly"
+			size="5"
+			class="gm_input"
+			label="COM_GMAP_VIEW_GM_MAP_EDITOR_MAP_LABEL_PITCH"
+			description="COM_GMAP_VIEW_GM_MAP_EDITOR_MAP_TOOLTIP_PITCH"
+			/>
+		<field
+			name="street_view_heading"
+			type="text"
+			default=""
+			maxlength="5"
+			readonly="readonly"
+			size="5"
+			class="gm_input"
+			label="COM_GMAP_VIEW_GM_MAP_EDITOR_MAP_LABEL_HEADING"
+			description="COM_GMAP_VIEW_GM_MAP_EDITOR_MAP_TOOLTIP_HEADING"
+			/>
+		<field
+			name="street_view_zoom"
+			type="text"
+			default=""
+			maxlength="5"
+			readonly="readonly"
+			size="5"
+			class="gm_input"
+			label="COM_GMAP_VIEW_GM_MAP_EDITOR_MAP_STREETVIEW_LABEL_ZOOM"
+			description="COM_GMAP_VIEW_GM_MAP_EDITOR_MAP_STREETVIEW_TOOLTIP_ZOOM"
+			/>
+	</fieldset>
+
+<!-- Map Marker -->	
+	<fieldset name="map_marker">
+		<field
+			name="marker_access_level"
+			type="usergroup"
+			class="span12 small"
+			onchange="Marker.setAccessLevel(this.value);"
+			label="JFIELD_ACCESS_LABEL"
+			description="JFIELD_ACCESS_DESC"
+			/>
+		<field
+			name="marker_titel"
+			type="text"
+			default=""
+			maxlength="50"
+			size="30"
+			class="gm_input"
+			onchange="Marker.setContent();"
+			label="COM_GMAP_VIEW_GM_MAP_EDITOR_MARKER_LABEL_TITLE"
+			description="COM_GMAP_VIEW_GM_MAP_EDITOR_MARKER_TOOLTIP_TITLE"
+			/>
+		<field
+			name="marker_strasse"
+			type="text"
+			default=""
+			maxlength="50"
+			size="30"
+			class="gm_input"
+			label="COM_GMAP_VIEW_GM_MAP_EDITOR_MARKER_LABEL_STREET"
+			description="COM_GMAP_VIEW_GM_MAP_EDITOR_MARKER_TOOLTIP_STREET"
+			/>
+		<field
+			name="marker_plz"
+			type="text"
+			default=""
+			maxlength="50"
+			size="30"
+			class="gm_input"
+			label="COM_GMAP_VIEW_GM_MAP_EDITOR_MARKER_LABEL_PLZ"
+			description="COM_GMAP_VIEW_GM_MAP_EDITOR_MARKER_TOOLTIP_PLZ"
+			/>
+		<field
+			name="marker_ort"
+			type="text"
+			default=""
+			maxlength="50"
+			size="30"
+			class="gm_input"
+			label="COM_GMAP_VIEW_GM_MAP_EDITOR_MARKER_LABEL_CITY"
+			description="COM_GMAP_VIEW_GM_MAP_EDITOR_MARKER_TOOLTIP_CITY"
+			/>
+		<field
+			name="marker_mouseover"
+			type="textarea"
+			default=""
+			cols="20"
+			rows="2"
+			onchange="Marker.assumeMouseOver();"
+			class="gm_input"
+			label="COM_GMAP_VIEW_GM_MAP_EDITOR_MARKER_LABEL_MOUSEOVER"
+			description="COM_GMAP_VIEW_GM_MAP_EDITOR_MARKER_TOOLTIP_MOUSEOVER"
+			/>
+		<field 
+				name="marker_autocomplete_section"
+				class="btn-group" 
+				type="radio"
+				default="ADDRESS"
+				label="COM_GMAP_VIEW_GM_MAP_EDITOR_MARKER_LABEL_AUTOCOMPLETE_SECTION"
+				description="COM_GMAP_VIEW_GM_MAP_EDITOR_MARKER_TOOLTIP_AUTOCOMPLETE_SECTION">
+				<option value="LAT_LNG" onclick="Marker.setAutoTypes('latlng');">COM_GMAP_VIEW_GM_MAP_EDITOR_MARKER_MOVE_TO_LAT_LNG</option>
+				<option value="PLACE" onclick="Marker.setAutoTypes('establishment');">COM_GMAP_VIEW_GM_MAP_EDITOR_MARKER_AUTOCOMPLETE_SECTION_PLACE</option>
+				<option value="ADDRESS" onclick="Marker.setAutoTypes('address');">COM_GMAP_VIEW_GM_MAP_EDITOR_MARKER_AUTOCOMPLETE_SECTION_ADDRESS</option>
+			</field>
+		<field
+			name="marker_address"
+			placeholder="Enter your address"
+			type="text"
+			default=""
+			maxlength="50"
+			size="30"
+			class="gm_input marker_address"
+			label="COM_GMAP_VIEW_GM_MAP_EDITOR_MARKER_LABEL_AUTOCOMPLETE_SECTION"
+			/>
+		<field
+			name="move_lat"
+			type="text"
+			default=""
+			maxlength="25"
+			size="10"
+			class="gm_input marker_address"
+			label="COM_GMAP_VIEW_GM_MAP_EDITOR_MARKER_INPUT_MOVE_MARKER_LNG"
+			/>
+		<field
+			name="move_lng"
+			placeholder="Enter your address"
+			type="text"
+			default=""
+			maxlength="25"
+			size="10"
+			class="gm_input marker_address"
+			label="COM_GMAP_VIEW_GM_MAP_EDITOR_MARKER_INPUT_MOVE_MARKER_LNG"
+			/>
+		<field
+			name="marker_beschreibung"
+			type="editor"
+			editor="JCE|TinyMCE"
+			default=""
+			cols="300"
+			rows="20"
+			height="auto"
+			width="100%"
+			button="false"
+			class="gm_input"
+			label=""
+			description=""
+			/>
+		<field 
+			name="marker_infowindow_open"
+			class="btn-group btn-group-yesno" 
+			type="radio"
+			default="2"
+			label="COM_GMAP_VIEW_GM_MAP_EDITOR_EDITOR_LABEL_INFOWINDOW_OPEN"
+			description="COM_GMAP_VIEW_GM_MAP_EDITOR_EDITOR_TOOLTIP_INFOWINDOW_OPEN">
+			<option value="1" onclick= "Marker.setInfoWindowOpen('checked');">JYES</option>
+			<option value="2" onclick= "Marker.setInfoWindowOpen('false');">JNO</option>
+		</field>
+	</fieldset>
+<!-- Map Marker Cluster-->	
+	<fieldset name="map_marker_cluster">
+		<field 
+			name="marker_cluster_activ"
+			class="btn-group btn-group-yesno" 
+			type="radio"
+			default="false"
+			label="COM_GMAP_VIEW_GM_MAP_EDITOR_EDITOR_LABEL_MARKER_CLUSTER_ACTIV"
+			description="">
+			<option value="true" onclick= "controlerMarkerCluster.setClusterActiv();">JYES</option>
+			<option value="false" onclick= "controlerMarkerCluster.setClusterActiv();">JNO</option>
+		</field>
+		<field
+			name="marker_cluster_grid_size"
+			type="integer"
+			default='50'
+			first='10'
+			last='100'
+			step='10'
+			onchange="controlerMarkerCluster.setClusterGrid()"
+			label="COM_GMAP_VIEW_GM_MAP_EDITOR_EDITOR_LABEL_MARKER_CLUSTER_GRID"
+			description=""
+			/>
+		<field 
+			name="marker_cluster_info_window"
+			class="btn-group btn-group-yesno" 
+			type="radio"
+			default="true"
+			label="COM_GMAP_VIEW_GM_MAP_EDITOR_EDITOR_LABEL_MARKER_CLUSTER_INFO_WINDOW"
+			description="">
+			<option value="true" >JYES</option>
+			<option value="false" >JNO</option>
+		</field>
+		<field
+			name="map_cluster_icon"
+			type="hidden"
+			default="55_55_000000_0_0_default.png"
+			/>
+		<field
+			name="map_folder_cluster_icon"
+			type="hidden"
+			default="gm_cluster_adefault"
+			/>
+	</fieldset>
+<!-- Map Rectangle -->	
+	<fieldset name="map_rectangle">
+		<field
+			name="rectangle_access_level"
+			type="usergroup"
+			class="span12 small"
+			onchange="Rectangle.setAccessLevel(this.value);"
+			label="JFIELD_ACCESS_LABEL"
+			description="JFIELD_ACCESS_DESC"
+			/>
+		<field
+			name="rectangle_title"
+			type="text"
+			default=""
+			maxlength="50"
+			size="30"
+			onchange="Rectangle.setRectangleParameter();"
+			class="gm_input"
+			label="COM_GMAP_VIEW_GM_MAP_EDITOR_RECTANGLE_LABEL_TITLE"
+			/>
+		<field
+			name="rectangle_farbe_linie"
+			type="text"
+			default="#000000"
+			maxlength="10"
+			size="10"
+			class="gm_input"
+			onchange="Rectangle.setLineColor();"
+			label="COM_GMAP_VIEW_GM_MAP_EDITOR_RECTANGLE_LABEL_COLOR"
+			description="COM_GMAP_VIEW_GM_MAP_EDITOR_RECTANGLE_TOOLTIP_COLOR"
+			/>
+		<field
+			name="rectangle_line_width"
+			type="slider"
+			min="1"
+			max="10"
+			value="1"
+			onchange="Rectangle.setLineWidth"
+			orientation="horizontal"
+			style="width:150px;margin:15px;"
+			label="COM_GMAP_VIEW_GM_MAP_EDITOR_RECTANGLE_LABEL_WIDTH"
+			description="">
+		</field>
+		<field
+			name="rectangle_line_opacity"
+			type="slider"
+			min="0"
+			max="10"
+			value="0"
+			onchange="Rectangle.setLineOpacity"
+			orientation="horizontal"
+			style="width:150px;margin:15px;"
+			label="COM_GMAP_VIEW_GM_MAP_EDITOR_RECTANGLE_LABEL_TRANSPARENT"
+			description="">
+		</field>
+		<field
+			name="rectangle_fill_opacity"
+			type="slider"
+			min="0"
+			max="10"
+			value="0"
+			onchange="Rectangle.setFillOpacity"
+			orientation="horizontal"
+			style="width:150px;margin:15px;"
+			label="COM_GMAP_VIEW_GM_MAP_EDITOR_RECTANGLE_LABEL_FILL_TRANSPARENT"
+			description="">
+		</field>
+		<field
+			name="rectangle_farbe_fuellung"
+			type="text"
+			default=""
+			maxlength="10"
+			size="10"
+			onchange="Rectangle.setFillColor();"
+			class="gm_input"
+			label="COM_GMAP_VIEW_GM_MAP_EDITOR_RECTANGLE_LABEL_FILL_COLOR"
+			description="COM_GMAP_VIEW_GM_MAP_EDITOR_RECTANGLE_TOOLTIP_FILL_COLOR"
+			/>
+		<field
+			name="rectangle_beschreibung"
+			type="editor"
+			editor="JCE|TinyMCE"
+			default=""
+			cols="300"
+			rows="20"
+			height="auto"
+			width="100%"
+			button="false"
+			class="gm_input"
+			label=""
+			description=""
+			/>
+		<field 
+			name="rectangle_infowindow_open"
+			class="btn-group btn-group-yesno" 
+			type="radio"
+			default="2"
+			label="COM_GMAP_VIEW_GM_MAP_EDITOR_EDITOR_LABEL_INFOWINDOW_OPEN"
+			description="COM_GMAP_VIEW_GM_MAP_EDITOR_EDITOR_TOOLTIP_INFOWINDOW_OPEN">
+			<option value="1" onclick= "Rectangle.setInfoWindowOpen('checked');">JYES</option>
+			<option value="2" onclick= "Rectangle.setInfoWindowOpen('false');">JNO</option>
+		</field>
+</fieldset>
+<!-- Map circle -->	
+	<fieldset name="map_circle">
+		<field
+			name="circle_access_level"
+			type="usergroup"
+			class="span12 small"
+			onchange="Circle.setAccessLevel(this.value);"
+			label="JFIELD_ACCESS_LABEL"
+			description="JFIELD_ACCESS_DESC"
+			/>
+		<field
+			name="circle_title"
+			type="text"
+			default=""
+			maxlength="50"
+			size="30"
+			onchange="Circle.setCircleParameter();"
+			class="gm_input"
+			label="COM_GMAP_VIEW_GM_MAP_EDITOR_CIRCLE_LABEL_TITLE"
+			/>
+		<field
+			name="circle_marker1"
+			type="text"
+			default=""
+			maxlength="50"
+			size="30"
+			readonly="readonly"
+			class="gm_input"
+			label="COM_GMAP_VIEW_GM_MAP_EDITOR_CIRCLE_LABEL_CENTER"
+			description="COM_GMAP_VIEW_GM_MAP_EDITOR_CIRCLE_TOOLTIP_CENTER"
+			/>
+		<field
+			name="circle_radius"
+			type="text"
+			default=""
+			maxlength="50"
+			size="30"
+			onchange="Circle.setRadius();"
+			class="gm_input"
+			label="COM_GMAP_VIEW_GM_MAP_EDITOR_CIRCLE_LABEL_RADIUS"
+			description="COM_GMAP_VIEW_GM_MAP_EDITOR_CIRCLE_TOOLTIP_RADIUS"
+			/>
+		<field
+			name="circle_farbe_linie"
+			type="text"
+			default="#000000"
+			maxlength="10"
+			size="10"
+			class="gm_input"
+			onchange="Circle.setFillColor();"
+			label="COM_GMAP_VIEW_GM_MAP_EDITOR_CIRCLE_LABEL_COLOR"
+			description="COM_GMAP_VIEW_GM_MAP_EDITOR_CIRCLE_TOOLTIP_COLOR"
+			/>
+		<field
+			name="circle_line_width"
+			type="slider"
+			min="1"
+			max="10"
+			value="1"
+			onchange="Circle.setLineWidth"
+			orientation="horizontal"
+			style="width:150px;margin:15px;"
+			label="COM_GMAP_VIEW_GM_MAP_EDITOR_CIRCLE_LABEL_WIDTH"
+			description="">
+		</field>
+		<field
+			name="circle_line_opacity"
+			type="slider"
+			min="0"
+			max="10"
+			value="0"
+			onchange="Circle.setLineOpacity"
+			orientation="horizontal"
+			style="width:150px;margin:15px;"
+			label="COM_GMAP_VIEW_GM_MAP_EDITOR_CIRCLE_LABEL_TRANSPARENT"
+			description="">
+		</field>
+		<field
+			name="circle_farbe_fuellung"
+			type="text"
+			default=""
+			maxlength="10"
+			size="10"
+			onchange="Circle.setFillColor();"
+			class="gm_input"
+			label="COM_GMAP_VIEW_GM_MAP_EDITOR_CIRCLE_LABEL_FILL_COLOR"
+			description="COM_GMAP_VIEW_GM_MAP_EDITOR_CIRCLE_TOOLTIP_FILL_COLOR"
+			/>
+		<field
+			name="circle_fill_opacity"
+			type="slider"
+			min="0"
+			max="10"
+			value="0"
+			onchange="Circle.setFillOpacity"
+			orientation="horizontal"
+			style="width:150px;margin:15px;"
+			label="COM_GMAP_VIEW_GM_MAP_EDITOR_CIRCLE_LABEL_FILL_TRANSPARENT"
+			description="">
+		</field>
+		<field
+			name="circle_beschreibung"
+			type="editor"
+			editor="JCE|TinyMCE"
+			default=""
+			cols="300"
+			rows="20"
+			height="auto"
+			width="100%"
+			button="false"
+			class="gm_input"
+			label=""
+			description=""
+			/>
+		<field 
+			name="circle_infowindow_open"
+			class="btn-group btn-group-yesno" 
+			type="radio"
+			default="2"
+			label="COM_GMAP_VIEW_GM_MAP_EDITOR_EDITOR_LABEL_INFOWINDOW_OPEN"
+			description="COM_GMAP_VIEW_GM_MAP_EDITOR_EDITOR_TOOLTIP_INFOWINDOW_OPEN">
+			<option value="1" onclick= "Circle.setInfoWindowOpen('checked');">JYES</option>
+			<option value="2" onclick= "Circle.setInfoWindowOpen('false');">JNO</option>
+		</field>
+	</fieldset>
+<!-- Map linie -->	
+	<fieldset name="map_linie">
+		<field
+			name="line_access_level"
+			type="usergroup"
+			class="span12 small"
+			onchange="Line.setAccessLevel(this.value);"
+			label="JFIELD_ACCESS_LABEL"
+			description="JFIELD_ACCESS_DESC"
+			/>
+		<field
+			name="line_title"
+			type="text"
+			default=""
+			maxlength="50"
+			size="30"
+			onchange="Line.setParameter();"
+			class="gm_input"
+			label="COM_GMAP_VIEW_GM_MAP_EDITOR_LINE_LABEL_TITLE"
+			description="COM_GMAP_VIEW_GM_MAP_EDITOR_LINE_TOOLTIP_TITLE"
+			/>
+		<field
+			name="line_length"
+			type="list"
+			onchange="convertlinelength(this.value);"
+			label="COM_GMAP_VIEW_GM_MAP_EDITOR_LINE_LABEL_LENGTH"
+			description="COM_GMAP_VIEW_GM_MAP_EDITOR_LINE_TOOLTIP_LENGTH"
+			default="1000">
+			<option value="1">Meter</option>
+			<option value="1000">Kilometer</option>
+			<option value="0.9144">Yards</option>
+			<option value="1609">Miles</option>
+		</field>
+		<field 
+			name="chart_on_off"
+			class="btn-group btn-group-yesno" 
+			type="radio"
+			default="false"
+			label="COM_GMAP_VIEW_GM_MAP_EDITOR_LINE_LABEL_CHART_ON_OFF"
+			description="COM_GMAP_VIEW_GM_MAP_EDITOR_LINE_TOOLTIP_CHART_ON_OFF">
+			<option value="true" onclick= "setChartShow()">JYES</option>
+			<option value="false" onclick= "setChartHide();">JNO</option>
+		</field>
+		<field 
+			name="chart_units"
+			class="btn-group btn-group-yesno" 
+			type="radio"
+			default="SI"
+			label="COM_GMAP_VIEW_GM_MAP_EDITOR_LINE_LABEL_CHART_UNITS"
+			description="COM_GMAP_VIEW_GM_MAP_EDITOR_LINE_TOOLTIP_CHART_UNITS">
+			<option value="SI" onclick= "Line.setChartDataUnits('SI');">COM_GMAP_VIEW_GM_MAP_EDITOR_LINE_CHART_UNITS_SI</option>
+			<option value="ANGLO" onclick= "Line.setChartDataUnits('ANGLO');">COM_GMAP_VIEW_GM_MAP_EDITOR_LINE_CHART_UNITS_ANGLO</option>
+		</field>
+		<field
+			name="line_farbe_linie"
+			type="text"
+			default="#000000"
+			maxlength="10"
+			size="10"
+			class="gm_input"
+			onchange="Line.getFormOption();"
+			label="COM_GMAP_VIEW_GM_MAP_EDITOR_LINE_LABEL_COLOR"
+			description="COM_GMAP_VIEW_GM_MAP_EDITOR_LINE_TOOLTIP_COLOR"
+			/>
+		<field
+			name="line_width"
+			type="slider"
+			min="1"
+			max="10"
+			value="1"
+			onchange="Line.setWidth"
+			orientation="horizontal"
+			style="width:150px;margin:15px;"
+			label="COM_GMAP_VIEW_GM_MAP_EDITOR_LINE_LABEL_WIDTH"
+			description="">
+		</field>
+		<field
+			name="line_opacity"
+			type="slider"
+			min="0"
+			max="10"
+			value="0"
+			onchange="Line.setOpacity"
+			orientation="horizontal"
+			style="width:150px;margin:15px;"
+			label="COM_GMAP_VIEW_GM_MAP_EDITOR_LINE_LABEL_TRANSPARENT"
+			description="">
+		</field>
+		<field
+			name="line_beschreibung"
+			type="editor"
+			editor="JCE|TinyMCE"
+			default=""
+			cols="300"
+			rows="20"
+			height="auto"
+			width="100%"
+			button="false"
+			class="gm_input"
+			label=""
+			description=""
+			/>
+		<field 
+			name="line_positinfowindow"
+			class="btn-group btn-group-yesno" 
+			type="radio"
+			default="1"
+			label="COM_GMAP_VIEW_GM_MAP_EDITOR_EDITOR_LABEL_POSIT_INFOWINDOW"
+			description="COM_GMAP_VIEW_GM_MAP_EDITOR_EDITOR_TOOLTIP_POSIT_INFOWINDOW">
+			<option value="1" onclick= "Line.setModusInfoWindowOpen('fixed');">
+					COM_GMAP_VIEW_GM_MAP_EDITOR_EDITOR_POSIT_INFOWINDOW_OPTION_FIXED</option>
+			<option value="2" onclick= "Line.setModusInfoWindowOpen('variable');">
+					COM_GMAP_VIEW_GM_MAP_EDITOR_EDITOR_POSIT_INFOWINDOW_OPTION_VARIABLE</option>
+		</field>
+		<field 
+			name="line_infowindow_open"
+			class="btn-group btn-group-yesno" 
+			type="radio"
+			default="2"
+			label="COM_GMAP_VIEW_GM_MAP_EDITOR_EDITOR_LABEL_INFOWINDOW_OPEN"
+			description="COM_GMAP_VIEW_GM_MAP_EDITOR_EDITOR_TOOLTIP_INFOWINDOW_OPEN">
+			<option value="1" onclick= "Line.setInfoWindowOpen('checked');">JYES</option>
+			<option value="2" onclick= "Line.setInfoWindowOpen('false');">JNO</option>
+		</field>
+		<field
+			name="line_style"
+			type="linestyle"
+			onchange="Line.setStyle(this.value);"
+			default="default"
+			label="COM_GMAP_VIEW_GM_MAP_EDITOR_LINE_LABEL_LINE_STYLE"
+			>
+			<option value="default" >COM_GMAP_VIEW_GM_MAP_EDITOR_LINE_STYLE_OPTION_DEFAULT</option>
+		</field>
+		<field 
+			name="opt_line_zindex"
+			class="btn-group btn-group-yesno"
+			type="radio"
+			default="1"
+			label="COM_GMAP_VIEW_GM_MAP_LINE_STYLE_LABEL_OPT_LINE_ZINDEX"
+			description="">
+			<option value="1" onclick= "Line.setStyleZindex(this.value);">COM_GMAP_VIEW_GM_MAP_LINE_STYLE_LABEL_OPT_LINE_ZINDEX_SVG</option>
+			<option value="3" onclick= "Line.setStyleZindex(this.value);">COM_GMAP_VIEW_GM_MAP_LINE_STYLE_LABEL_OPT_LINE_ZINDEX_LINE</option>
+		</field>
+		<field
+			name="opt_line_svg_offset"
+			class="inputbox"
+			default="0"
+			onchange="Line.setStyleParameter();"
+			label="COM_GMAP_VIEW_GM_MAP_LINE_STYLE_LABEL_OPT_LINE_ICON_OFFSET"
+			size="15"
+			type="text"
+		/>
+		<field
+			name="opt_line_svg_repeat"
+			class="inputbox"
+			default="10px"
+			onchange="Line.setStyleParameter();"
+			label="COM_GMAP_VIEW_GM_MAP_LINE_STYLE_LABEL_OPT_LINE_ICON_PEPEAT"
+			size="15"
+			type="text"
+		/>
+		<field
+			name="opt_line_scale"
+			type="slider"
+			min="1"
+			max="30"
+			value="1"
+			onchange="Line.setStyleScale"
+			orientation="horizontal"
+			style="width:150px;margin:15px;"
+			label="COM_GMAP_VIEW_GM_MAP_LINE_STYLE_LABEL_SCALE"
+			description="">
+		</field>
+	</fieldset>
+<!-- Map Polygon -->	
+	<fieldset name="map_polygon">
+		<field
+			name="polygon_access_level"
+			type="usergroup"
+			class="span12 small"
+			onchange="Polygon.setAccessLevel(this.value);"
+			label="JFIELD_ACCESS_LABEL"
+			description="JFIELD_ACCESS_DESC"
+			/>
+		<field
+			name="polygon_title"
+			type="text"
+			default=""
+			maxlength="50"
+			size="30"
+			onchange="Polygon.setParameter();"
+			class="gm_input"
+			label="COM_GMAP_VIEW_GM_MAP_EDITOR_POLYGON_LABEL_TITLE"
+			description="COM_GMAP_VIEW_GM_MAP_EDITOR_POLYGON_TOOLTIP_TITLE"
+			/>
+		<field
+			name="polygon_line_length"
+			type="list"
+			onchange="convertpolygonlength(this.value);"
+			label="COM_GMAP_VIEW_GM_MAP_EDITOR_POLYGON_LABEL_LENGTH"
+			description="COM_GMAP_VIEW_GM_MAP_EDITOR_POLYGON_TOOLTIP_LENGTH"
+			default="1000">
+			<option value="1">Meter</option>
+			<option value="1000">Kilometer</option>
+			<option value="0.9144">Yards</option>
+			<option value="1609">Miles</option>
+		</field>
+		<field
+			name="polygon_area"
+			type="list"
+			onchange="convertpolygonarea(this.value);"
+			label="COM_GMAP_VIEW_GM_MAP_EDITOR_POLYGON_LABEL_AREA"
+			description="COM_GMAP_VIEW_GM_MAP_EDITOR_POLYGON_TOOLTIP_AREA"
+			default="1000000">
+			<option value="1">Meter²</option>
+			<option value="1000000">Kilometer²</option>
+			<option value="10000">Hektar</option>
+			<option value="7140">Fussballplatz</option>
+			<option value="0.8361">Yards²</option>
+			<option value="2589988">Miles²</option>
+			<option value="4046">Acres</option>
+			<option value="5351.04">American football field</option>
+		</field>
+		<field
+			name="polygon_line_color"
+			type="text"
+			default="#000000"
+			maxlength="10"
+			size="10"
+			class="gm_input"
+			onchange="Polygon.getLineColor();"
+			label="COM_GMAP_VIEW_GM_MAP_EDITOR_POLYGON_LABEL_COLOR"
+			description="COM_GMAP_VIEW_GM_MAP_EDITOR_POLYGON_TOOLTIP_COLOR"
+			/>
+		<field
+			name="polygon_line_width"
+			type="slider"
+			min="1"
+			max="10"
+			value="1"
+			onchange="Polygon.setLineWidth"
+			orientation="horizontal"
+			style="width:150px;margin:15px;"
+			label="COM_GMAP_VIEW_GM_MAP_EDITOR_POLYGON_LABEL_WIDTH"
+			description="COM_GMAP_VIEW_GM_MAP_EDITOR_POLYGON_TOOLTIP_WIDTH"
+			/>
+		<field
+			name="polygon_line_opacity"
+			type="slider"
+			min="0"
+			max="10"
+			value="0"
+			onchange="Polygon.setLineOpacity"
+			orientation="horizontal"
+			style="width:150px;margin:15px;"
+			label="COM_GMAP_VIEW_GM_MAP_EDITOR_POLYGON_LABEL_TRANSPARENT"
+			description="COM_GMAP_VIEW_GM_MAP_EDITOR_POLYGON_TOOLTIP_TRANSPARENT"
+			/>
+		<field
+			name="polygon_fill_color"
+			type="text"
+			default=""
+			maxlength="10"
+			size="10"
+			onchange="Polygon.setFillColor();"
+			class="gm_input"
+			label="COM_GMAP_VIEW_GM_MAP_EDITOR_POLYGON_LABEL_FILL_COLOR"
+			description="COM_GMAP_VIEW_GM_MAP_EDITOR_POLYGON_TOOLTIP_FILL_COLOR"
+			/>
+		<field
+			name="polygon_fill_opacity"
+			type="slider"
+			min="0"
+			max="10"
+			value="0"
+			onchange="Polygon.setFillOpacity"
+			orientation="horizontal"
+			style="width:150px;margin:15px;"
+			label="COM_GMAP_VIEW_GM_MAP_EDITOR_POLYGON_LABEL_FILL_TRANSPARENT"
+			description="COM_GMAP_VIEW_GM_MAP_EDITOR_POLYGON_TOOLTIP_FILL_TRANSPARENT"
+		/>
+		<field
+			name="polygon_beschreibung"
+			type="editor"
+			editor="JCE|TinyMCE"
+			default=""
+			cols="300"
+			rows="20"
+			height="auto"
+			width="100%"
+			button="false"
+			class="gm_input"
+			label=""
+			description=""
+			/>
+		<field 
+			name="polygon_infowindow_open"
+			class="btn-group btn-group-yesno" 
+			type="radio"
+			default="2"
+			label="COM_GMAP_VIEW_GM_MAP_EDITOR_EDITOR_LABEL_INFOWINDOW_OPEN"
+			description="COM_GMAP_VIEW_GM_MAP_EDITOR_EDITOR_TOOLTIP_INFOWINDOW_OPEN">
+			<option value="1" onclick= "Polygon.setInfoWindowOpen('checked');">JYES</option>
+			<option value="2" onclick= "Polygon.setInfoWindowOpen('false');">JNO</option>
+		</field>
+	</fieldset>
+<!-- Map HTML Box -->	
+	<fieldset name="map_text">
+		<field
+			name="htmlbox_access_level"
+			type="usergroup"
+			class="span12 small"
+			onchange="Box.setAccessLevel(this.value);"
+			label="JFIELD_ACCESS_LABEL"
+			description="JFIELD_ACCESS_DESC"
+			/>
+		<field
+			name="htmlbox_rotation"
+			type="slider"
+			min="0"
+			max="359"
+			value="0"
+			onchange="Box.setRotation"
+			orientation="horizontal"
+			style="width:250px;margin:15px;"
+			label="COM_GMAP_VIEW_GM_MAP_EDITOR_HTMLBOX_LABEL_ROTATION"
+			/>
+		<field
+			name="htmlbox_range_view"
+			type="slider"
+			min="0"
+			max="21"
+			value="0,21"
+			range="true"
+			range_label="COM_GMAP_VIEW_GM_MAP_EDITOR_HTMLBOX_RANGE_LABEL"
+			onchange="Box.setRangeView"
+			orientation="horizontal"
+			style="width:250px;margin:15px;"
+			label="COM_GMAP_VIEW_GM_MAP_EDITOR_HTMLBOX_LABEL_RANGE_VIEW"
+			/>
+		<field
+			name="text_box_beschreibung"
+			type="editor"
+			editor="JCE|TinyMCE"
+			default=""
+			cols="300"
+			rows="20"
+			height="auto"
+			width="100%"
+			button="false"
+			class="gm_input"
+			label=""
+			description=""
+			/>
+	</fieldset>
+<!-- Map KML File -->	
+	<fieldset name="kml_file">
+		<field
+			name="kml_file"
+			type="kmllist"
+			onchange="controlerKml.showFile();"
+			multiple ="true"
+			label="COM_GMAP_VIEW_GM_MAP_EDITOR_KML_LABEL_KML_FILE"
+			description="">
+		</field>
+		<field
+			name="kml_files"
+			type="hidden"
+			/>
+		<field
+			name="import_url"
+			type="url"
+			class="gm_input"
+			default=""
+			size="60"
+			label="COM_GMAP_VIEW_GM_MAP_EDITOR_KML_LABEL_IMPORT_URL"
+			description="">
+		</field>
+	</fieldset>
+</form>
