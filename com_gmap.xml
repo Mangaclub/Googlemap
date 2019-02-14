@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE install PUBLIC "-//Joomla! 1.5//DTD component 1.0//EN" "http://joomla.org/xml/dtd/1.5/component-install.dtd">
+<extension type="component" version="3.3" method="upgrade">
+  <name>COM_GMAP</name>
+  <creationDate>Sep-2016</creationDate>
+  <author>Andy Thielke</author>
+  <authorEmail>kontakt@joomla-24.de</authorEmail>
+  <authorUrl>http://www.joomla-24.de</authorUrl>
+  <copyright>Copyright (C)2016 Andy Thielke</copyright>
+  <license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+  <version>4.2.3</version>
+  <description>Google Map Landkarten erstellen und in Beiträgen ausgeben.</description>
+ 	<scriptfile>script.php</scriptfile>
+  <install>
+    <sql>
+      <file driver="mysql" charset="utf8">sql/install.mysql.utf8.sql</file>
+    </sql>
+  </install>
+  <uninstall>
+    <sql>
+      <file driver="mysql" charset="utf8">sql/uninstall.mysql.utf8.sql</file>
+    </sql>
+  </uninstall>
+  	<update> 
+		<schemas>
+			<schemapath type="mysql">sql/updates</schemapath>
+		</schemas>
+	</update>  
+  <files folder="site">
+    <folder>assets</folder>
+    <folder>helpers</folder>
+    <folder>models</folder>
+    <folder>views</folder>
+    <filename>controller.php</filename>
+    <filename>index.html</filename>
+    <filename>gmap.php</filename>
+  </files>
+	<languages folder="site">
+		<language tag="en-GB">language/en-GB.com_gmap.ini</language>
+		<language tag="de-DE">language/de-DE.com_gmap.ini</language>
+	</languages>
+
+ <administration>
+    <menu img="class:com_gmap" link="option=com_gmap">COM_GMAP</menu>
+         <submenu>
+		<menu img="class:com_gmap" link="option=com_gmap">COM_GMAP_UEBERSICHT</menu>
+		<menu img="class:com_gmap" link="option=com_gmap&amp;view=gm_maps">COM_GMAP_MAP_NEW</menu>
+		<menu img="class:com_gmap" link="option=com_gmap&amp;view=gm_editors">COM_GMAP_MAP_EDITOR</menu>
+		<menu img="class:com_gmap" link="option=com_gmap&amp;view=gm_line_styles">COM_GMAP_LINE_STYLE</menu>
+		<menu img="class:com_gmap" link="option=com_gmap&amp;view=gm_kmls">COM_GMAP_KML</menu>
+		<menu img="class:com_gmap" link="option=com_gmap&amp;view=gm_langs">COM_GMAP_LANG_NEW</menu>
+		<menu img="class:com_gmap" link="option=com_gmap&amp;view=gm_config&amp;layout=edit&amp;id=1">COM_GMAP_CONFIG</menu>
+    </submenu>
+    <files folder="admin">
+      <folder>assets</folder>
+      <folder>controllers</folder>
+      <folder>helpers</folder>
+      <folder>language</folder>
+      <folder>models</folder>
+	  <folder>sql</folder>
+      <folder>tables</folder>
+	  <folder>updates</folder>
+      <folder>views</folder>
+	  <folder>com_gmap</folder>
+      <filename>access.xml</filename>
+      <filename>gmap.php</filename>
+      <filename>config.xml</filename>
+      <filename>controller.php</filename>
+      <filename>index.html</filename>
+    </files>
+	<languages folder="admin">
+		<language tag="de-DE">language/de-DE.com_gmap.ini</language>
+		<language tag="de-DE">language/de-DE.com_gmap.sys.ini</language>
+		<language tag="en-GB">language/en-GB.com_gmap.ini</language>
+		<language tag="en-GB">language/en-GB.com_gmap.sys.ini</language>
+    </languages>
+  </administration>
+   	<updateservers>
+		<server type="extension" priority="1" name="Google Map Landkarten">https://update.joomla-24.de/files/update42.xml</server>
+	</updateservers>
+
+</extension>
